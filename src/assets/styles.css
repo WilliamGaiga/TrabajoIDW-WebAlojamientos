@@ -1,0 +1,86 @@
+header {
+    background-color: #6f90a4;
+    color: #b5e6e4;
+    padding: 2px;
+    text-align: center;
+}
+
+.botones-derecha {
+   text-align:right;
+     
+}
+
+
+nav ul {
+    list-style: none;
+    background-color: #6f90a4;
+    text-align: center;
+    padding: 10px 0;
+    margin: 0;
+
+}
+nav ul li {
+    display: inline;
+}
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    padding: 10px 25px;
+    display: inline-block;
+
+}
+nav ul li a:hover {
+    background-color:#b5e6e4;
+    touch-action:pinch-zoom;
+    text-decoration:underline;
+}
+
+
+
+
+/* Estilos para el contenedor de la galería */
+.galeria {
+    display: flex; /* Establece un contenedor flexible */
+    justify-content: space-between; /* Distribuye los elementos de manera uniforme */
+}
+
+/* Estilos para cada foto */
+.foto {
+    width: 30%; /* Ancho reducido para cada foto */
+    text-align: center; /* Centra el contenido dentro de cada foto */
+}
+
+
+/* Estilos para las imágenes */
+.foto img {
+    width: 80%; /* Establece que la imagen ocupe todo el ancho de su contenedor */
+    height: auto; /* Permite que la altura se ajuste automáticamente para mantener la relación de aspecto */
+}
+
+/* Estilos para el pie de cada foto */
+.pie {
+    color: white; /* Color del texto */
+    padding: 10px; /* Espaciado interno */
+    margin-bottom: 10px; /* Margen inferior para separar el pie de cada foto */
+}
+/* Estilos para los enlaces dentro del pie */
+.pie a {
+    display: block; /* Muestra los enlaces como bloques para que ocupen todo el ancho disponible */
+    background-color: #c3eded; /* Color de fondo */
+    color: rgb(84, 101, 235); /* Color del texto */
+    padding: 10px; /* Espaciado interno */
+    margin-bottom: 10px; /* Margen inferior para separar los enlaces */
+    text-decoration: none; /* Quita el subrayado del enlace */
+}
+
+
+
+/* Estilos para el pie de página */
+footer {
+    color: rgb(64, 64, 64);
+    padding: 0px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: left;
+}
