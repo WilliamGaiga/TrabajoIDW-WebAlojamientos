@@ -1,26 +1,41 @@
-import React, { useState, useEffect } from 'react';
-import api from './api';
+// src/components/ListAlojamientos.jsx
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import api from './api'
 
 const ListAlojamientos = () => {
   const [alojamientos, setAlojamientos] = useState([]);
 
   useEffect(() => {
-    api.get('/alojamiento/getAlojamientos')
-      .then(response => {
+    const fetchAlojamientos = async () => {
+      try {
+        const response = await api.get('/alojamiento/getAlojamientos');
         setAlojamientos(response.data);
-      })
-      .catch(error => {
-        console.error(error);
-      });
+      } catch (error) {
+        console.error('Error obteniendo alojamientos:', error);
+      }
+    };
+    fetchAlojamientos();
   }, []);
+
+  const handleDelete = async (id) => {
+    try {
+      await api.delete(`/alojamiento/deleteAlojamiento/${id}`);
+      setAlojamientos(alojamientos.filter((alojamiento) => alojamiento.idAlojamiento !== id));
+    } catch (error) {
+      console.error('Error eliminando alojamiento:', error);
+    }
+  };
 
   return (
     <div>
-      <h2>Listado de Alojamientos</h2>
+      <h1>Lista de Alojamientos</h1>
       <ul>
-        {alojamientos.map(alojamiento => (
+        {alojamientos.map((alojamiento) => (
           <li key={alojamiento.idAlojamiento}>
-            {alojamiento.Titulo}
+            {alojamiento.Titulo} - {alojamiento.Estado}
+            <Link to={`/Alojamiento/EditAlojamiento/${alojamiento.idAlojamiento}`}>Editar</Link>
+            <button onClick={() => handleDelete(alojamiento.idAlojamiento)}>Eliminar</button>
           </li>
         ))}
       </ul>
