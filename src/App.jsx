@@ -28,7 +28,7 @@ const App = () => (
         <Route path="/tiposAlojamiento/EditTipoAlojamiento/:id" element={<EditTipoAlojamiento />} />
         <Route path="/tiposAlojamiento/ListTiposAlojamiento" element={<ListTiposAlojamiento />} />
         <Route path="/Alojamiento/createAlojamiento" element={<CreateAlojamiento />} />
-        <Route path="/Alojamiento/editAlojamiento" element={<EditAlojamiento />} />
+        <Route path="/Alojamiento/editAlojamiento/:id" element={<EditAlojamiento />} />
         <Route path="/Alojamiento/listAlojamiento" element={<ListAlojamientos/>} />
        
       </Routes>

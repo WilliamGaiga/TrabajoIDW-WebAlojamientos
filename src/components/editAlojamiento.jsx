@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import api from './api';
 import { useParams, useNavigate } from 'react-router-dom';
+import api from './api';
 
 const EditAlojamiento = () => {
   const { id } = useParams();
-  const navigate = useNavigate();
   const [alojamiento, setAlojamiento] = useState({
     Titulo: '',
     Descripcion: '',
@@ -16,11 +15,12 @@ const EditAlojamiento = () => {
     CantidadBanios: '',
     Estado: ''
   });
+  const navigate = useNavigate();
 
   useEffect(() => {
     api.get(`/alojamiento/getAlojamiento/${id}`)
       .then(response => {
-        setAlojamiento(response.data);
+        setAlojamiento(response.data || {});
       })
       .catch(error => {
         console.error(error);
@@ -32,7 +32,7 @@ const EditAlojamiento = () => {
     api.put(`/alojamiento/putAlojamiento/${id}`, alojamiento)
       .then(response => {
         console.log(response);
-        navigate('/Alojamiento/listAlojamiento');
+        navigate('/alojamiento/listAlojamiento');
       })
       .catch(error => {
         console.error('Error actualizando alojamiento:', error);
@@ -59,7 +59,70 @@ const EditAlojamiento = () => {
           placeholder="Título" 
           required 
         />
-        {/* Resto de los campos */}
+        <textarea 
+          name="Descripcion"
+          value={alojamiento.Descripcion} 
+          onChange={handleChange} 
+          placeholder="Descripción" 
+          required 
+        />
+        <input 
+          type="text" 
+          name="TipoAlojamiento"
+          value={alojamiento.TipoAlojamiento} 
+          onChange={handleChange} 
+          placeholder="Tipo de Alojamiento" 
+          required 
+        />
+        <input 
+          type="text" 
+          name="Latitud"
+          value={alojamiento.Latitud} 
+          onChange={handleChange} 
+          placeholder="Latitud" 
+          required 
+        />
+        <input 
+          type="text" 
+          name="Longitud"
+          value={alojamiento.Longitud} 
+          onChange={handleChange} 
+          placeholder="Longitud" 
+          required 
+        />
+        <input 
+          type="text" 
+          name="PrecioPorDia"
+          value={alojamiento.PrecioPorDia} 
+          onChange={handleChange} 
+          placeholder="Precio por Día" 
+          required 
+        />
+        <input 
+          type="number" 
+          name="CantidadDormitorios"
+          value={alojamiento.CantidadDormitorios} 
+          onChange={handleChange} 
+          placeholder="Cantidad de Dormitorios" 
+          required 
+        />
+        <input 
+          type="number" 
+          name="CantidadBanios"
+          value={alojamiento.CantidadBanios} 
+          onChange={handleChange} 
+          placeholder="Cantidad de Baños" 
+          required 
+        />
+        <select 
+          name="Estado"
+          value={alojamiento.Estado} 
+          onChange={handleChange} 
+          required
+        >
+          <option value="Disponible">Disponible</option>
+          <option value="Reservado">Reservado</option>
+        </select>
         <button type="submit">Guardar cambios</button>
       </form>
     </div>
