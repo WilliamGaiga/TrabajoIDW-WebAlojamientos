@@ -1,4 +1,3 @@
-// App.jsx
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Header from './components/Header';
@@ -10,6 +9,10 @@ import AdminPage from './components/AdminPage';
 import CreateTipoAlojamiento from './components/CreateTipoAlojamiento';
 import EditTipoAlojamiento from './components/EditTipoAlojamiento';
 import ListTiposAlojamiento from './components/ListTiposAlojamiento';
+import CreateAlojamiento from './components/createAlojamiento';
+import EditAlojamiento from './components/editAlojamiento';
+import ListAlojamientos from './components/listAlojamiento';
+
 import './assets/styles.css';
 
 const App = () => (
@@ -24,6 +27,10 @@ const App = () => (
         <Route path="/tiposAlojamiento/CreateTipoAlojamiento" element={<CreateTipoAlojamiento />} />
         <Route path="/tiposAlojamiento/EditTipoAlojamiento/:id" element={<EditTipoAlojamiento />} />
         <Route path="/tiposAlojamiento/ListTiposAlojamiento" element={<ListTiposAlojamiento />} />
+        <Route path="/Alojamiento/createAlojamiento" element={<CreateAlojamiento />} />
+        <Route path="/Alojamiento/editAlojamiento" element={<EditAlojamiento />} />
+        <Route path="/Alojamiento/listAlojamiento" element={<ListAlojamientos/>} />
+       
       </Routes>
       <Footer />
     </div>
@@ -31,5 +38,4 @@ const App = () => (
 );
 
 export default App;
-
 

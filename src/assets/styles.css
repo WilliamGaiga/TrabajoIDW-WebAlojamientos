@@ -79,7 +79,7 @@ nav ul li a:hover {
 footer {
     color: rgb(64, 64, 64);
     padding: 0px;
-    position: fixed;
+    position: relative;
     bottom: 0;
     width: 100%;
     text-align: left;
