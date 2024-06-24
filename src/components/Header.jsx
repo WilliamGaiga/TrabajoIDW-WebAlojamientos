@@ -36,12 +36,6 @@ const Header = () => {
           </ul>
         </nav>
       </div>
-      <div className="search-container">
-        <form action="#" method="GET">
-          <input type="text" name="q" placeholder="Buscar..." />
-          <button type="submit">Buscar</button>
-        </form>
-      </div>
       {showModal && (
         <div className="modal">
           <form onSubmit={handleModalSubmit}>

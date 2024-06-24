@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import api from './api';
 import { useNavigate } from 'react-router-dom';
 
+
 const CreateAlojamiento = () => {
   const [alojamiento, setAlojamiento] = useState({
     idAlojamiento: '',
@@ -15,6 +16,8 @@ const CreateAlojamiento = () => {
     CantidadBanios: '',
     Estado: 'Disponible'
   });
+  const [notification, setNotification] = useState('');
+
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
@@ -22,10 +25,12 @@ const CreateAlojamiento = () => {
     api.post('/alojamiento/createAlojamiento', alojamiento)
       .then(response => {
         console.log(response);
+        setNotification('Alojamiento registrado correctamente');
         navigate('/Alojamiento/ListAlojamiento');
       })
       .catch(error => {
         console.error('Error creando alojamiento:', error);
+        setNotification('Error al crear nuevo alojamiento');
       });
   };
 
@@ -40,6 +45,7 @@ const CreateAlojamiento = () => {
   return (
     <div>
       <h2>Crear Alojamiento</h2>
+      {notification && <p>{notification}</p>}
       <form onSubmit={handleSubmit}>
         <input 
           type="text" 
@@ -130,3 +136,9 @@ const CreateAlojamiento = () => {
 };
 
 export default CreateAlojamiento;
+
+
+
+
+
+

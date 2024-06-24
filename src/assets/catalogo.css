@@ -1,26 +1,104 @@
-.alojamiento-card {
-    border: 1px solid #ccc;
-    padding: 16px;
-    margin: 16px;
-    border-radius: 8px;
+/* Estilos para el contenedor del catálogo */
+.catalogo {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
   }
   
-  .servicios ul {
+  /* Estilos para cada alojamiento */
+  .alojamiento {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 300px;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .alojamiento h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .alojamiento p {
+    font-size: 1em;
+    margin: 5px 0;
+    color: #666;
+  }
+  
+  .alojamiento h3 {
+    font-size: 1.2em;
+    margin-top: 15px;
+    color: #333;
+  }
+  
+  .alojamiento ul {
     list-style-type: none;
     padding: 0;
   }
   
-  .servicios li {
-    background-color: #f0f0f0;
-    margin: 4px 0;
-    padding: 8px;
-    border-radius: 4px;
+  .alojamiento ul li {
+    font-size: 0.9em;
+    color: #555;
+  }
+  
+  /* Estilos para la sección de imágenes */
+  .imagenes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 10px;
   }
   
   .imagenes img {
-    max-width: 100px;
-    margin: 8px;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 5px;
+    border: 1px solid #ddd;
   }
   
+  /* Estilos para el botón de reservar */
+  .reservar-button {
+    margin-top: 15px;
+  }
   
+  .reservar-button button {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .reservar-button button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Estilos generales */
+  h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+  }
+  
+  div {
+    box-sizing: border-box;
+  }
   
