@@ -12,6 +12,8 @@ import ListTiposAlojamiento from './components/ListTiposAlojamiento';
 import CreateAlojamiento from './components/createAlojamiento';
 import EditAlojamiento from './components/editAlojamiento';
 import ListAlojamientos from './components/listAlojamiento';
+import Imagenes from './components/imagenes';
+import Servicios from './components/servicios';
 
 import './assets/styles.css';
 
@@ -28,9 +30,10 @@ const App = () => (
         <Route path="/tiposAlojamiento/EditTipoAlojamiento/:id" element={<EditTipoAlojamiento />} />
         <Route path="/tiposAlojamiento/ListTiposAlojamiento" element={<ListTiposAlojamiento />} />
         <Route path="/Alojamiento/createAlojamiento" element={<CreateAlojamiento />} />
-        <Route path="/Alojamiento/editAlojamiento/" element={<EditAlojamiento />} />
-        <Route path="/Alojamiento/listAlojamiento" element={<ListAlojamientos/>} />
-       
+        <Route path="/Alojamiento/EditAlojamiento/:id" element={<EditAlojamiento />} />
+        <Route path="/Alojamiento/listAlojamiento" element={<ListAlojamientos />} />
+        <Route path="/imagenes" element={<Imagenes />} />
+        <Route path="/servicios" element={<Servicios/>} />
       </Routes>
       <Footer />
     </div>
@@ -38,4 +41,5 @@ const App = () => (
 );
 
 export default App;
+
 
