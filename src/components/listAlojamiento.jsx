@@ -1,4 +1,3 @@
-// src/components/ListAlojamientos.jsx
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import api from './api'
@@ -33,7 +32,7 @@ const ListAlojamientos = () => {
       <ul>
         {alojamientos.map((alojamiento) => (
           <li key={alojamiento.idAlojamiento}>
-            {alojamiento.Titulo} - {alojamiento.Estado}
+            ID: {alojamiento.idAlojamiento} - {alojamiento.Titulo} - {alojamiento.Estado}
             <Link to={`/Alojamiento/EditAlojamiento/${alojamiento.idAlojamiento}`}>Editar</Link>
             <button onClick={() => handleDelete(alojamiento.idAlojamiento)}>Eliminar</button>
           </li>

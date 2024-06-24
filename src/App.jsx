@@ -14,7 +14,7 @@ import EditAlojamiento from './components/editAlojamiento';
 import ListAlojamientos from './components/listAlojamiento';
 import Imagenes from './components/imagenes';
 import Servicios from './components/servicios';
-
+import AlojamientosServicios from './components/AlojamientosServicios';
 import './assets/styles.css';
 
 const App = () => (
@@ -34,6 +34,7 @@ const App = () => (
         <Route path="/Alojamiento/listAlojamiento" element={<ListAlojamientos />} />
         <Route path="/imagenes" element={<Imagenes />} />
         <Route path="/servicios" element={<Servicios/>} />
+        <Route path="/AlojamientosServicios" element={<AlojamientosServicios/>} />
       </Routes>
       <Footer />
     </div>

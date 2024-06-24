@@ -1,111 +1,128 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const Servicios = () => {
   const [servicios, setServicios] = useState([]);
-  const [nuevoServicio, setNuevoServicio] = useState({ Nombre: '' });
-  const [editServicio, setEditServicio] = useState({ idServicio: '', Nombre: '' });
-  const navigate = useNavigate();
+  const [nombre, setNombre] = useState('');
+  const [idServicio, setIdServicio] = useState('');
+  const [editMode, setEditMode] = useState(false);
 
   useEffect(() => {
-    obtenerServicios();
+    axios.get('http://localhost:3001/servicio/getAllServicios')
+      .then(response => {
+        if (Array.isArray(response.data)) {
+          setServicios(response.data);
+        } else {
+          console.error('La respuesta de la API no es un array:', response.data);
+        }
+      })
+      .catch(error => {
+        console.error('Error obteniendo servicios:', error);
+      });
   }, []);
 
-  const obtenerServicios = async () => {
-    try {
-      const response = await axios.get('/servicio/getAllServicios');
-      setServicios(response.data);
-    } catch (error) {
-      console.error('Error obteniendo servicios:', error);
-    }
-  };
-
-  const crearServicio = async (e) => {
+  const handleCreate = (e) => {
     e.preventDefault();
-    try {
-      const response = await axios.post('/servicio/createServicio', nuevoServicio);
-      setServicios([...servicios, response.data]);
-      setNuevoServicio({ Nombre: '' });
-    } catch (error) {
-      console.error('Error creando servicio:', error);
-    }
+    axios.post('http://localhost:3001/servicio/createServicio', { Nombre: nombre })
+      .then(response => {
+        console.log('Servicio creado:', response.data);
+        setServicios([...servicios, response.data]);
+        setNombre('');
+      })
+      .catch(error => {
+        console.error('Error creando servicio:', error);
+      });
   };
 
-  const actualizarServicio = async (id) => {
-    try {
-      const response = await axios.put(`/servicio/updateServicio/${id}`, editServicio);
-      setServicios(servicios.map(servicio => servicio.idServicio === id ? response.data : servicio));
-      setEditServicio({ idServicio: '', Nombre: '' });
-    } catch (error) {
-      console.error('Error actualizando servicio:', error);
-    }
+  const handleUpdate = (e) => {
+    e.preventDefault();
+    axios.put(`http://localhost:3001/servicio/updateServicio/${idServicio}`, { Nombre: nombre })
+      .then(response => {
+        console.log('Servicio actualizado:', response.data);
+        setServicios(servicios.map(servicio => servicio.idServicio === idServicio ? response.data : servicio));
+        setNombre('');
+        setIdServicio('');
+        setEditMode(false);
+      })
+      .catch(error => {
+        console.error('Error actualizando servicio:', error);
+      });
   };
 
-  const eliminarServicio = async (id) => {
-    try {
-      await axios.delete(`/servicio/deleteServicio/${id}`);
-      setServicios(servicios.filter(servicio => servicio.idServicio !== id));
-    } catch (error) {
-      console.error('Error eliminando servicio:', error);
-    }
+  const handleDelete = (id) => {
+    axios.delete(`http://localhost:3001/servicio/deleteServicio/${id}`)
+      .then(() => {
+        console.log('Servicio eliminado');
+        setServicios(servicios.filter(servicio => servicio.idServicio !== id));
+      })
+      .catch(error => {
+        console.error('Error eliminando servicio:', error);
+      });
   };
 
-  const handleNuevoServicioChange = (e) => {
-    const { name, value } = e.target;
-    setNuevoServicio(prevState => ({
-      ...prevState,
-      [name]: value
-    }));
+  const handleEditClick = (servicio) => {
+    setIdServicio(servicio.idServicio);
+    setNombre(servicio.Nombre);
+    setEditMode(true);
   };
 
-  const handleEditServicioChange = (e) => {
-    const { name, value } = e.target;
-    setEditServicio(prevState => ({
-      ...prevState,
-      [name]: value
-    }));
+  const handleCancelEdit = () => {
+    setNombre('');
+    setIdServicio('');
+    setEditMode(false);
   };
 
   return (
     <div>
       <h2>Administrar Servicios</h2>
-      <form onSubmit={crearServicio}>
-        <input 
-          type="text" 
-          name="Nombre" 
-          value={nuevoServicio.Nombre} 
-          onChange={handleNuevoServicioChange} 
-          placeholder="Nombre del servicio" 
-          required 
-        />
-        <button type="submit">Crear Servicio</button>
-      </form>
-      <h3>Lista de Servicios</h3>
-      <ul>
-        {servicios.map(servicio => (
-          <li key={servicio.idServicio}>
-            {servicio.Nombre}
-            <button onClick={() => setEditServicio(servicio)}>Editar</button>
-            <button onClick={() => eliminarServicio(servicio.idServicio)}>Eliminar</button>
-          </li>
-        ))}
-      </ul>
-      {editServicio.idServicio && (
-        <form onSubmit={() => actualizarServicio(editServicio.idServicio)}>
+
+      {!editMode && (
+        <form onSubmit={handleCreate} style={{ marginBottom: '20px' }}>
+          <h3>Crear Servicio</h3>
           <input 
             type="text" 
-            name="Nombre" 
-            value={editServicio.Nombre} 
-            onChange={handleEditServicioChange} 
+            value={nombre} 
+            onChange={(e) => setNombre(e.target.value)} 
             placeholder="Nombre del servicio" 
             required 
           />
-          <button type="submit">Actualizar Servicio</button>
+          <button type="submit">Crear</button>
         </form>
       )}
+
+      {editMode && (
+        <form onSubmit={handleUpdate} style={{ marginBottom: '20px' }}>
+          <h3>Actualizar Servicio</h3>
+          <input 
+            type="text" 
+            value={nombre} 
+            onChange={(e) => setNombre(e.target.value)} 
+            placeholder="Nuevo nombre del servicio" 
+            required 
+          />
+          <button type="submit">Actualizar</button>
+          <button type="button" onClick={handleCancelEdit}>Cancelar</button>
+        </form>
+      )}
+
+      <ul>
+        {Array.isArray(servicios) && servicios.length > 0 ? (
+         servicios.map((servicio) => (
+            <li key={servicio.idServicio}>
+              {servicio.idServicio} - {servicio.Nombre}
+              <button onClick={() => handleDelete(servicio.idServicio)}>Eliminar</button>
+              <button onClick={() => handleEditClick(servicio)}>Editar</button>
+            </li>
+          ))
+        ) : (
+          <li>No hay servicios disponibles</li>
+        )}
+      </ul>
     </div>
   );
 };
 
 export default Servicios;
+
+
+  

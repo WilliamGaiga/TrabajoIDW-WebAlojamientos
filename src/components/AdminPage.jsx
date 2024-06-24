@@ -12,6 +12,7 @@ const AdminPage = () => {
         <li><Link to="/Alojamiento/listAlojamiento">Mostrar alojamiento</Link></li>
         <li><Link to="/imagenes">Administrar Imágenes</Link></li>
         <li><Link to="/servicios">Administrar Servicios</Link></li>
+        <li><Link to="/AlojamientosServicios">Administrar Alojamientos-Servicios</Link></li>
       </ul>
     </div>
   );
