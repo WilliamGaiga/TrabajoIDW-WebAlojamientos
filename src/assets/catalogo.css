@@ -1,0 +1,26 @@
+.alojamiento-card {
+    border: 1px solid #ccc;
+    padding: 16px;
+    margin: 16px;
+    border-radius: 8px;
+  }
+  
+  .servicios ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .servicios li {
+    background-color: #f0f0f0;
+    margin: 4px 0;
+    padding: 8px;
+    border-radius: 4px;
+  }
+  
+  .imagenes img {
+    max-width: 100px;
+    margin: 8px;
+  }
+  
+  
+  

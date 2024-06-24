@@ -15,7 +15,10 @@ import ListAlojamientos from './components/listAlojamiento';
 import Imagenes from './components/imagenes';
 import Servicios from './components/servicios';
 import AlojamientosServicios from './components/AlojamientosServicios';
+import Galeria from './components/Galeria';
+import Catalogo from './components/Catalogo';
 import './assets/styles.css';
+
 
 const App = () => (
   <Router>
@@ -35,6 +38,8 @@ const App = () => (
         <Route path="/imagenes" element={<Imagenes />} />
         <Route path="/servicios" element={<Servicios/>} />
         <Route path="/AlojamientosServicios" element={<AlojamientosServicios/>} />
+        <Route path="/Galeria" element={<Galeria/>} />
+        <Route path="/catalogo/" element={<Catalogo />} />
       </Routes>
       <Footer />
     </div>

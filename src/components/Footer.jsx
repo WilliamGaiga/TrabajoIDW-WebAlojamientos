@@ -59,7 +59,7 @@ const footerStyle = {
 };
 
 const iconContainerStyle = {
-  marginTop: '50px',
+  marginTop: '0px',
   display: 'flex',
   justifyContent: 'flex-start',
   gap: '100px',
