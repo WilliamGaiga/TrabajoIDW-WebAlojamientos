@@ -17,6 +17,7 @@ import Servicios from './components/servicios';
 import AlojamientosServicios from './components/AlojamientosServicios';
 import Galeria from './components/Galeria';
 import Catalogo from './components/Catalogo';
+import FiltroBusq from './components/FiltroBusq';
 import './assets/styles.css';
 import './assets/catalogo.css'
 
@@ -42,6 +43,7 @@ const App = () => (
         <Route path="/AlojamientosServicios" element={<AlojamientosServicios/>} />
         <Route path="/Galeria" element={<Galeria/>} />
         <Route path="/Catalogo/" element={<Catalogo />} />
+        <Route path="/FiltroBusq" element={<FiltroBusq />} />
      
       </Routes>
       <Footer />
