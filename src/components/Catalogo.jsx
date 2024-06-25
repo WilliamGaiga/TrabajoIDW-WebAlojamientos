@@ -65,6 +65,7 @@ const Catalogo = () => {
   return (
     <div>
       <h1>Catálogo de Alojamientos</h1>
+      <a href="/busqueda">Filtrar Búsqueda</a>
       <div className="catalogo">
         {alojamientos.map((alojamiento) => (
           <div key={alojamiento.idAlojamiento} className="alojamiento">

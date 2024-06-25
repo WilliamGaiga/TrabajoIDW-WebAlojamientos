@@ -4,6 +4,7 @@ import logo from '/img/Logo.png'; // Usa la ruta pública
 import '../assets/header.css'; // Importa el archivo CSS
 import "../assets/clave.css";
 
+
 const Header = () => {
   const [showModal, setShowModal] = useState(false);
   const [password, setPassword] = useState('');
