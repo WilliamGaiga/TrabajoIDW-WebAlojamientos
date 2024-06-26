@@ -13,7 +13,7 @@ import CreateAlojamiento from './components/createAlojamiento';
 import EditAlojamiento from './components/editAlojamiento';
 import ListAlojamientos from './components/listAlojamiento';
 import Imagenes from './components/imagenes';
-import Servicios from './components/servicios';
+import Servicios from './components/Servicios';
 import AlojamientosServicios from './components/AlojamientosServicios';
 import Galeria from './components/Galeria';
 import Catalogo from './components/Catalogo';
@@ -39,7 +39,7 @@ const App = () => (
         <Route path="/Alojamiento/EditAlojamiento/:id" element={<EditAlojamiento />} />
         <Route path="/Alojamiento/listAlojamiento" element={<ListAlojamientos />} />
         <Route path="/imagenes" element={<Imagenes />} />
-        <Route path="/servicios" element={<Servicios/>} />
+        <Route path="/Servicios" element={<Servicios/>} />
         <Route path="/AlojamientosServicios" element={<AlojamientosServicios/>} />
         <Route path="/Galeria" element={<Galeria/>} />
         <Route path="/Catalogo/" element={<Catalogo />} />
