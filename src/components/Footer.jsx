@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import axios from 'axios';
-import facebookLogo from '/img/facebook.svg'; // Ruta de tu logo de Facebook
-import instagramLogo from '/img/Instagram.svg'; // Ruta de tu logo de Instagram
-
+import facebookLogo from '/img/facebook.svg'; 
+import instagramLogo from '/img/Instagram.svg'; 
 
 const Footer = () => {
   const location = useLocation();
@@ -25,10 +24,10 @@ const Footer = () => {
   }, []);
 
   if (isAdminPage) {
-    return null; // No renderiza el footer en la página de administrador
+    return null; 
   }
 
-  // Formatear la fecha y hora
+  
   const formattedDateTime = new Date(dateTime).toLocaleString('es-AR', {
     timeZone: 'America/Argentina/Buenos_Aires',
     dateStyle: 'full',

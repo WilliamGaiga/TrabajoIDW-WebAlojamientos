@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import logo from '/img/Logo.png'; // Usa la ruta pública
-import '../assets/header.css'; // Importa el archivo CSS
+import logo from '/img/Logo.png'; 
+import '../assets/header.css'; 
 import "../assets/clave.css";
 
 
@@ -16,7 +16,7 @@ const Header = () => {
   const handleModalSubmit = (e) => {
     e.preventDefault();
     if (password === '1996') {
-      // Redirige a la página de administración si la contraseña es correcta
+      
       window.location.href = '/AdminPage';
     } else {
       alert('Clave incorrecta. Intente nuevamente.');

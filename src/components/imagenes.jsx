@@ -7,7 +7,7 @@ const Imagenes = () => {
     const [idEditar, setIdEditar] = useState(null);
     const [imagenEditar, setImagenEditar] = useState({ idAlojamiento: '', RutaArchivo: '' });
 
-    // Función para obtener todas las imágenes
+    
     const fetchImagenes = async () => {
         try {
             const response = await axios.get('http://localhost:3001/imagen/getAllImagenes');
@@ -17,7 +17,7 @@ const Imagenes = () => {
         }
     };
 
-    // Función para registrar una nueva imagen
+    
     const createImagen = async () => {
         try {
             const response = await axios.post('http://localhost:3001/imagen/createImagen', nuevaImagen);
@@ -28,7 +28,7 @@ const Imagenes = () => {
         }
     };
 
-    // Función para actualizar una imagen existente
+    
     const updateImagen = async (id) => {
         try {
             const response = await axios.put(`http://localhost:3001/imagen/updateImagen/${id}`, imagenEditar);
@@ -40,7 +40,7 @@ const Imagenes = () => {
         }
     };
 
-    // Función para eliminar una imagen
+    
     const deleteImagen = async (id) => {
         try {
             await axios.delete(`http://localhost:3001/imagen/deleteImagen/${id}`);

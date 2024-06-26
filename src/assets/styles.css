@@ -36,46 +36,41 @@ nav ul li a:hover {
 }
 
 
-
-
-/* Estilos para el contenedor de la galería */
 .galeria {
-    display: flex; /* Establece un contenedor flexible */
-    justify-content: space-between; /* Distribuye los elementos de manera uniforme */
+    display: flex; 
+    justify-content: space-between; 
 }
 
-/* Estilos para cada foto */
+
 .foto {
-    width: 30%; /* Ancho reducido para cada foto */
-    text-align: center; /* Centra el contenido dentro de cada foto */
+    width: 30%; 
+    text-align: center; 
 }
 
 
-/* Estilos para las imágenes */
 .foto img {
-    width: 80%; /* Establece que la imagen ocupe todo el ancho de su contenedor */
-    height: auto; /* Permite que la altura se ajuste automáticamente para mantener la relación de aspecto */
+    width: 80%; 
+    height: auto; 
 }
 
-/* Estilos para el pie de cada foto */
+
 .pie {
-    color: white; /* Color del texto */
-    padding: 10px; /* Espaciado interno */
-    margin-bottom: 10px; /* Margen inferior para separar el pie de cada foto */
+    color: white; 
+    padding: 10px; 
+    margin-bottom: 10px; 
 }
-/* Estilos para los enlaces dentro del pie */
+
 .pie a {
-    display: block; /* Muestra los enlaces como bloques para que ocupen todo el ancho disponible */
-    background-color: #c3eded; /* Color de fondo */
-    color: rgb(84, 101, 235); /* Color del texto */
-    padding: 10px; /* Espaciado interno */
-    margin-bottom: 10px; /* Margen inferior para separar los enlaces */
-    text-decoration: none; /* Quita el subrayado del enlace */
+    display: block; 
+    background-color: #c3eded; 
+    color: rgb(84, 101, 235); 
+    padding: 10px; 
+    margin-bottom: 10px; 
+    text-decoration: none; 
 }
 
 
 
-/* Estilos para el pie de página */
 footer {
     color: rgb(64, 64, 64);
     padding: 0px;

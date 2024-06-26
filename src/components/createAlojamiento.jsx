@@ -28,14 +28,14 @@ const CreateAlojamiento = () => {
         setTimeout(() => {
           setNotification('');
           navigate('/Alojamiento/ListAlojamiento');
-        }, 2000); // Ajustar el retraso según sea necesario
+        }, 2000); 
       })
       .catch(error => {
         console.error('Error creando alojamiento:', error);
         setNotification('Error al crear nuevo alojamiento');
         setTimeout(() => {
           setNotification('');
-        }, 2000); // Ajustar el retraso según sea necesario
+        }, 2000); 
       });
   };
 

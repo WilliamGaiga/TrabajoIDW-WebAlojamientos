@@ -1,4 +1,4 @@
-/* Estilos para el contenedor del catálogo */
+/* Estilos para el catálogo */
 .catalogo {
     display: flex;
     flex-wrap: wrap;
@@ -7,7 +7,7 @@
     padding: 20px;
   }
   
-  /* Estilos para cada alojamiento */
+  /* Estilo para los alojamientos*/
   .alojamiento {
     background-color: #f9f9f9;
     border: 1px solid #ddd;
@@ -49,7 +49,7 @@
     color: #555;
   }
   
-  /* Estilos para la sección de imágenes */
+  
   .imagenes {
     display: flex;
     flex-wrap: wrap;
@@ -66,7 +66,7 @@
     border: 1px solid #ddd;
   }
   
-  /* Estilos para el botón de reservar */
+ 
   .reservar-button {
     margin-top: 15px;
   }
@@ -84,7 +84,7 @@
     background-color: #0056b3;
   }
   
-  /* Estilos generales */
+ 
   h1 {
     text-align: center;
     margin-bottom: 20px;

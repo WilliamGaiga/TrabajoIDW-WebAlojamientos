@@ -11,7 +11,7 @@ const Catalogo = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // Fetching alojamientos
+        
         const alojamientosResponse = await fetch('http://localhost:3001/alojamiento/getAlojamientos');
         const alojamientosData = await alojamientosResponse.json();
         if (!Array.isArray(alojamientosData)) {
@@ -19,7 +19,7 @@ const Catalogo = () => {
         }
         setAlojamientos(alojamientosData);
 
-        // Fetching servicios
+        
         const serviciosResponse = await fetch('http://localhost:3001/servicio/getAllServicios');
         const serviciosData = await serviciosResponse.json();
         if (!Array.isArray(serviciosData)) {
@@ -27,7 +27,7 @@ const Catalogo = () => {
         }
         setServicios(serviciosData);
 
-        // Fetching alojamientosServicios
+        
         const alojamientosServiciosResponse = await fetch('http://localhost:3001/alojamientosServicios/getAllAlojamientoServicios');
         const alojamientosServiciosData = await alojamientosServiciosResponse.json();
         if (!Array.isArray(alojamientosServiciosData)) {
@@ -35,7 +35,7 @@ const Catalogo = () => {
         }
         setAlojamientosServicios(alojamientosServiciosData);
 
-        // Fetching imagenes
+        
         const imagenesResponse = await fetch('http://localhost:3001/imagen/getAllImagenes');
         const imagenesData = await imagenesResponse.json();
         if (!Array.isArray(imagenesData)) {
