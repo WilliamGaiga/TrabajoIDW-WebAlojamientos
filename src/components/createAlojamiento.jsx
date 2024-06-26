@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import api from './api';
 import { useNavigate } from 'react-router-dom';
 
-
 const CreateAlojamiento = () => {
   const [alojamiento, setAlojamiento] = useState({
     idAlojamiento: '',
@@ -26,11 +25,17 @@ const CreateAlojamiento = () => {
       .then(response => {
         console.log(response);
         setNotification('Alojamiento registrado correctamente');
-        navigate('/Alojamiento/ListAlojamiento');
+        setTimeout(() => {
+          setNotification('');
+          navigate('/Alojamiento/ListAlojamiento');
+        }, 2000); // Ajustar el retraso según sea necesario
       })
       .catch(error => {
         console.error('Error creando alojamiento:', error);
         setNotification('Error al crear nuevo alojamiento');
+        setTimeout(() => {
+          setNotification('');
+        }, 2000); // Ajustar el retraso según sea necesario
       });
   };
 
@@ -98,7 +103,7 @@ const CreateAlojamiento = () => {
           required 
         />
         <input 
-          type="text" 
+          type="number" 
           name="PrecioPorDia"
           value={alojamiento.PrecioPorDia} 
           onChange={handleChange} 
@@ -106,7 +111,7 @@ const CreateAlojamiento = () => {
           required 
         />
         <input 
-          type="text" 
+          type="number" 
           name="CantidadDormitorios"
           value={alojamiento.CantidadDormitorios} 
           onChange={handleChange} 
@@ -114,7 +119,7 @@ const CreateAlojamiento = () => {
           required 
         />
         <input 
-          type="text" 
+          type="number" 
           name="CantidadBanios"
           value={alojamiento.CantidadBanios} 
           onChange={handleChange} 
@@ -136,9 +141,6 @@ const CreateAlojamiento = () => {
 };
 
 export default CreateAlojamiento;
-
-
-
 
 
 

@@ -101,4 +101,17 @@
   div {
     box-sizing: border-box;
   }
+  .filtro-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #7adced;
+    color: rgb(255, 251, 251);
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-bottom: 20px;
+  }
   
+  .filtro-button:hover {
+    background-color: #eef273;
+  }

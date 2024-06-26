@@ -66,7 +66,7 @@ const Catalogo = () => {
   return (
     <div>
       <h1>Catálogo de Alojamientos</h1>
-      <Link to="/FiltroBusq">Filtrar Búsqueda</Link>
+      <Link to="/FiltroBusq" className="filtro-button">Filtrar Búsqueda    </Link>
       <div className="catalogo">
         {alojamientos.map((alojamiento) => (
           <div key={alojamiento.idAlojamiento} className="alojamiento">
@@ -74,6 +74,8 @@ const Catalogo = () => {
             <p>{alojamiento.Descripcion}</p>
             <p>Precio por día: {alojamiento.PrecioPorDia}</p>
             <p>Estado: {alojamiento.Estado}</p>
+            <p>Cantidad de Dormitorios: {alojamiento.CantidadDormitorios}</p>
+            <p>Cantidad de Baños: {alojamiento.CantidadBanios}</p>
             <div>
               <h3>Servicios:</h3>
               <ul>

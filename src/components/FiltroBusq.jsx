@@ -1,4 +1,3 @@
-// src/components/FiltroBusq.jsx
 import React, { useState, useEffect } from 'react';
 import '../assets/catalogo.css';
 
@@ -98,7 +97,7 @@ const FiltroBusq = () => {
             <option value="">Seleccione</option>
             <option value="1">Casa</option>
             <option value="2">Departamento</option>
-            <option value="3">Cabañas</option>
+            <option value="3">Cabaña</option>
             <option value="4">Hostel</option>
           </select>
         </label>
@@ -112,19 +111,19 @@ const FiltroBusq = () => {
         </label>
         <label>
           Precio Mínimo:
-          <input type="number" name="precioMin" value={filtros.precioMin} onChange={handleChange} />
+          <input type="number" name="precioMin" value={filtros.precioMin} onChange={handleChange} min="1" />
         </label>
         <label>
           Precio Máximo:
-          <input type="number" name="precioMax" value={filtros.precioMax} onChange={handleChange} />
+          <input type="number" name="precioMax" value={filtros.precioMax} onChange={handleChange} min="1" />
         </label>
         <label>
           Dormitorios:
-          <input type="number" name="dormitorios" value={filtros.dormitorios} onChange={handleChange} />
+          <input type="number" name="dormitorios" value={filtros.dormitorios} onChange={handleChange} min="1" />
         </label>
         <label>
           Baños:
-          <input type="number" name="banios" value={filtros.banios} onChange={handleChange} />
+          <input type="number" name="banios" value={filtros.banios} onChange={handleChange} min="1" />
         </label>
         <button type="submit">Filtrar</button>
       </form>
